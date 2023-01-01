@@ -1,0 +1,208 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: "Unbounded", cursive;
+  overflow-x: hidden;
+  background-color: rgb(233, 230, 230);
+}
+
+/* navbar */
+nav {
+  display: flex;
+  background-color: rgba(112, 104, 121, 0);
+  justify-content: space-around;
+  /* padding: 20px 0; */
+  /* color: rgb(0, 0, 0); */
+  height: 50px;
+  align-items: center;
+}
+
+nav .logo {
+  font-family: "Titillium Web", sans-serif;
+  letter-spacing: 3px;
+  font-size: 25px;
+}
+nav .logo a {
+  text-decoration: none;
+}
+nav .logo a:nth-child(1) {
+  color: black;
+}
+nav ul {
+  display: flex;
+  list-style: none;
+  width: 40%;
+  justify-content: space-between;
+}
+
+nav ul li a {
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  font-size: 0.8em;
+}
+
+nav ul li a:hover {
+  color: rgb(138, 136, 136);
+  font-size: 1em;
+  border-bottom: 1px solid rgb(138, 136, 136);
+}
+
+/* hamburger menu */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  height: 20px;
+  justify-content: space-between;
+  position: relative;
+}
+
+.menu-toggle input {
+  position: absolute;
+  width: 40px;
+  height: 28px;
+  left: -6px;
+  top: -4px;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 28px;
+  height: 3px;
+  background-color: rgb(0, 0, 0);
+  border-radius: 3px;
+  transition: all 0.5s;
+}
+
+/* hamburger animation */
+.menu-toggle span:nth-child(2) {
+  transform-origin: 0 0;
+}
+.menu-toggle span:nth-child(4) {
+  transform-origin: 0 100%;
+}
+
+.menu-toggle input:checked ~ span:nth-child(2) {
+  background-color: white;
+  transform: rotate(45deg) translate(-1px, -1px);
+}
+.menu-toggle input:checked ~ span:nth-child(4) {
+  background-color: white;
+  transform: rotate(-45deg) translate(-1px, 0);
+}
+.menu-toggle input:checked ~ span:nth-child(3) {
+  opacity: 0;
+  transform: scale(0);
+}
+
+/* container-home */
+.container-home {
+  padding: 200px 0;
+}
+.box-home {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.box-home .box h1 {
+  color: grey;
+}
+.box-home .box p {
+  margin: 20px 0;
+}
+.box-home .box i {
+  font-size: 3vw;
+  margin: 0 10px;
+  z-index: -2;
+}
+.box-home .box a:nth-child(3) {
+  color: blue;
+}
+.box-home .box a:nth-child(4) {
+  color: rgb(223, 45, 149);
+}
+.box-home .box a:nth-child(5) {
+  color: rgb(0, 0, 0);
+}
+
+/* bissmillah profile */
+.box-profile {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: grey;
+  margin-top: 46px;
+  height: 100vh;
+}
+.box-profile .box img {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  box-shadow: 5px 5px 12px white;
+}
+
+/* responsive breakpoint */
+
+/* ukuran tablet */
+@media screen and (max-width: 990px) {
+  .box-profile {
+    text-align: center;
+  }
+}
+@media screen and (max-width: 768px) {
+  nav ul {
+    width: 50%;
+  }
+  .box-profile {
+    font-size: 14px;
+    text-align: center;
+  }
+}
+
+/* ukuran hp */
+@media screen and (max-width: 576px) {
+  .menu-toggle {
+    display: flex;
+  }
+  nav ul {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: rgb(119, 119, 119);
+    /* z-index: -1; */
+    transform: translateX(100%);
+    transition: all 1s;
+    opacity: 0;
+  }
+
+  nav ul li a:hover {
+    color: rgb(255, 253, 253);
+    font-size: 1em;
+    border-bottom: 1px solid rgb(253, 251, 251);
+  }
+
+  nav .logo {
+    z-index: 10;
+  }
+  nav ul.slide {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  .box-home .box {
+    z-index: -999;
+  }
+  .box-profile {
+    flex-wrap: wrap;
+    text-align: center;
+  }
+}
