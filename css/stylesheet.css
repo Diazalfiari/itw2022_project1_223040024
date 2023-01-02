@@ -1,6 +1,8 @@
 * {
   margin: 0;
   padding: 0;
+  text-decoration: none;
+  box-sizing: border-box;
 }
 body {
   font-family: "Unbounded", cursive;
@@ -101,7 +103,7 @@ nav ul li a:hover {
 
 /* container-home */
 .container-home {
-  padding: 200px 0;
+  padding: 250px 0;
 }
 .box-home {
   display: flex;
@@ -130,13 +132,53 @@ nav ul li a:hover {
   color: rgb(0, 0, 0);
 }
 
-/* bissmillah profile */
+/* animasi pada tag p di home */
+
+.container-home .box-home .box p {
+  border-right: solid 3px rgba(0, 255, 0, 0.75);
+  white-space: nowrap;
+  overflow: hidden;
+  font-family: "Source Code Pro", monospace;
+  font-size: 28px;
+  color: rgba(17, 17, 17, 0.7);
+}
+
+/* animasi */
+
+.container-home .box-home .box p {
+  animation: animated-text 4s steps(29, end) 1s 1 normal both,
+    animated-cursor 600ms steps(29, end) infinite;
+}
+
+/* text animation */
+
+@keyframes animated-text {
+  from {
+    width: 0;
+  }
+  to {
+    width: 470px;
+  }
+}
+
+/* cursor animations */
+
+@keyframes animated-cursor {
+  from {
+    border-right-color: rgba(0, 255, 0, 0.75);
+  }
+  to {
+    border-right-color: transparent;
+  }
+}
+
+/* start profile */
 .box-profile {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background-color: grey;
-  margin-top: 46px;
+  background-color: rgb(206, 201, 201);
+  margin-top: 65px;
   height: 100vh;
 }
 .box-profile .box img {
@@ -146,63 +188,210 @@ nav ul li a:hover {
   box-shadow: 5px 5px 12px white;
 }
 
+.box {
+  padding-right: 20px;
+}
+
+.box hr.split {
+  display: inline-block;
+  width: 190px;
+  height: 4px;
+  background: black;
+  margin: 10px 0px;
+}
+
+/* start hobi */
+.box-hobi {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #eaeaea;
+  padding: 25px 0px;
+}
+
+.box-hobi hr.split {
+  display: inline-block;
+  width: 150px;
+  height: 4px;
+  background: black;
+  margin: 10px 0;
+}
+
+.box-hobi .cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.box-hobi .card {
+  width: 350px;
+  margin: 20px 20px;
+  display: flex;
+}
+.box-hobi .card img {
+  width: 100%;
+  border-radius: 5%;
+}
+
+/* start project */
+
+.container-projects {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #eaeaea;
+  padding: 25px 0px;
+  height: 100%;
+}
+
+.container-projects .cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.container-projects .card {
+  width: 350px;
+  margin: 20px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgb(206, 201, 201);
+  padding: 0px 0px 5px 0px;
+  border-radius: 5%;
+}
+
+.container-projects .card img {
+  width: 100%;
+}
+
+.container-projects .card p {
+  color: black;
+  padding: 10px;
+}
+
+/* start contact */
+.container-contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 25px 0px;
+}
+
+.container-contact form {
+  width: 800px;
+  display: flex;
+  flex-direction: column;
+}
+
+.container-contact form label {
+  margin-top: 10px;
+}
+
+.container-contact form input {
+  width: 100%;
+  padding: 5px 10px;
+}
+
+.container-contact form textarea {
+  width: 100%;
+  padding: 5px 10px;
+}
+
+.container-contact form button {
+  width: 70px;
+  background: #337ab7;
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
 /* responsive breakpoint */
 
 /* ukuran tablet */
+
 @media screen and (max-width: 990px) {
   .box-profile {
     text-align: center;
   }
-}
-@media screen and (max-width: 768px) {
-  nav ul {
-    width: 50%;
-  }
-  .box-profile {
-    font-size: 14px;
-    text-align: center;
-  }
-}
 
-/* ukuran hp */
-@media screen and (max-width: 576px) {
-  .menu-toggle {
-    display: flex;
+  .container-contact form {
+    width: 600px;
   }
-  nav ul {
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 100%;
-    height: 100vh;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
-    background-color: rgb(119, 119, 119);
-    /* z-index: -1; */
-    transform: translateX(100%);
-    transition: all 1s;
-    opacity: 0;
+  @media screen and (max-width: 768px) {
+    nav ul {
+      width: 50%;
+    }
+    .box-profile {
+      font-size: 14px;
+      text-align: center;
+    }
+
+    .container-contact form {
+      width: 98%;
+    }
+    .container-contact form input,
+    .container-contact form textarea {
+      box-sizing: border-box;
+    }
   }
 
-  nav ul li a:hover {
-    color: rgb(255, 253, 253);
-    font-size: 1em;
-    border-bottom: 1px solid rgb(253, 251, 251);
-  }
+  /* ukuran hp */
+  @media screen and (max-width: 576px) {
+    .menu-toggle {
+      display: flex;
+    }
+    nav ul {
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 100%;
+      height: 100vh;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-evenly;
+      background-color: rgb(119, 119, 119);
+      /* z-index: -1; */
+      transform: translateX(100%);
+      transition: all 1s;
+      opacity: 0;
+    }
 
-  nav .logo {
-    z-index: 10;
-  }
-  nav ul.slide {
-    opacity: 1;
-    transform: translateX(0);
-  }
-  .box-home .box {
-    z-index: -999;
-  }
-  .box-profile {
-    flex-wrap: wrap;
-    text-align: center;
+    nav ul li a:hover {
+      color: rgb(255, 253, 253);
+      font-size: 1em;
+      border-bottom: 1px solid rgb(253, 251, 251);
+    }
+
+    nav .logo {
+      z-index: 10;
+    }
+    nav ul.slide {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    .box-home .box {
+      z-index: -999;
+    }
+    .box-profile {
+      flex-wrap: wrap;
+      text-align: center;
+    }
+
+    .container-home .box-home .box p {
+      font-size: 20px;
+    }
+
+    @keyframes animated-text {
+      from {
+        width: 0;
+      }
+      to {
+        width: 330px;
+      }
+    }
   }
 }
